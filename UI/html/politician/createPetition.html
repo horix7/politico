@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/politico/UI/css/index.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <title>Create A Petition</title>
+</head>
+<body>
+    <header>
+        <nav class="landingNav">
+            <div class="menuItems"></div>
+            <div class="menuItems"><a href="landing.html">Home</a></div>
+            <div class="menuItems"><a href="#">About</a></div>
+            <div class="menuItems"><a href="#"></a></div>
+            <div class="menuItems end"><a href="login.html"></a></div>
+            <div class="menuItems end"><a href="sign_up.html">My Account</a></div>
+    
+       </nav>
+    </header>
+
+   <div class="all-parties">
+    <div class="menu">
+        <ul>
+            <li class="firs"> Quick links</li>
+            <a href="allCandindates.html"><li class="fis">candindates</li></a>
+            <a href="parties.html"><li class="fis">Political Parties </li></a>
+            <a href="/politico/UI/html/allOffices.html"><li class="fis">Offices</li></a>
+            <a href="accountPage.html"><li class="fis">Your Account</li></a>
+
+        </ul>
+    </div>
+
+    <div class="grids">
+            <h1 class="part-head"> Create A Petition</h1>
+            <hr>
+            <div class="offices">
+                <div>
+                    <select name="presence" id="status" class="gove-input">
+                        <option  selected>Petition Against </option>
+                        <option value="ministry of justice" >ministry of justice </option>
+                        <option value="ministry of justice" >ministry of healthy </option>
+                        <option value="ministry of justice" >ministry of education </option>
+                        <option value="ministry of justice" >Goverment </option>
+                        <option value="ministry of justice" > other </option>
+                    </select>
+                    <div class="not"><h4>what other reason</h4></div>
+                    <input type="text" placeholder="other.." class="gove-input ins">
+                    
+                    <div class="not"><h4>reason for petition</h4></div>
+                    <textarea name="details" id="details" cols="30" rows="10" class="details2"></textarea>
+                </div>
+               <div class="row">
+               <div> <div class="not ins2"><h4>3 Proof files</h4></div>
+               <label for="logo"> <input type="file" placeholder="Leader Email" class="upload border" id="logo">use PDF or Image </label>
+               <label for="logo"> <input type="file" placeholder="Leader Email" class="upload border" id="logo">use PDF or Image </label>
+               <label for="logo"> <input type="file" placeholder="Leader Email" class="upload border" id="logo">use PDF or Image </label>
+</div>
+<button type="submit" class="sign_btn"> Submit</button>
+
+               </div>
+                </div>
+
+
+            
+            </div>
+        </div>
+
+   </div>
+   <script src="/politico/UI/js/createPetion.js"></script>
+</body>
+</html>
