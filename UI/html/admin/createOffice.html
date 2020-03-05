@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="/politico/UI/css/index.css">
+    <link rel="stylesheet" href="/politico/UI/css/admin.css">
+    <title>Dashboard</title>
+</head>
+<body  class="heading">
+        <nav class="nav-bar">
+            <div class="main-holder">
+                
+              <h1>politico</h1>
+
+            </div>
+            <div class="holder">
+                
+                <p><i class="fas fa-tachometer-alt icon"></i> Dashboard</p>
+
+            </div>
+
+            <div class="holder">
+                
+                <p><i class="far fa-plus-square icon"></i> Create A Party</p>
+
+            </div>
+            <div class="holder">
+                
+                <p><i class="far fa-eye icon"></i> View All parties</p>
+
+            </div>
+            <div class="holder">
+                
+                <p><i class="far fa-plus-square icon"></i> Create An Office</p>
+
+            </div>
+            <div class="holder">
+                
+                <p><i class="far fa-eye icon"></i> view All Offices</p>
+
+            </div>
+            
+            <div class="holder">
+                <p><i class="fas fa-globe icon"></i> view votes</p>
+            </div>
+
+            <div class="holder">
+                
+                <p><i class="fas fa-power-off icon"></i> Logout</p>
+
+            </div>
+
+            
+       </nav>
+
+       <div class="rest">
+           <div class="dash1"> <h1><i class="far fa-plus-square ffa"></i> Create A Political Party</h1></div>
+            <div class="political-details">
+                <div class="row">
+                    <input type="text" placeholder="Office Name" class="gove-input" id="officeName">
+                    <input type="text" placeholder="Office Leader" class="gove-input" id="officeLeader" >
+                    <input type="text" placeholder="Office Headquarters" class="gove-input" id="officeHq">
+                    <input type="number" placeholder="Office Goveremnt Id" class="gove-input" id="goveId">
+                    <div class="not"><h4>Office Logo</h4></div>
+                    <label for="logo"> <input type="file" placeholder="Leader Email" class="upload" id="logo">use JPG or PNG image</label>
+                    <input type="address" placeholder="address" class="gove-input" id="offAddress">
+                    
+                </div>
+
+                 <div class="row">
+                    <select name="presence" id="status" class="gove-input">
+                        <option value="open for application" selected>open for application</option>
+                        <option value="open for application" >closed for application</option>
+                    </select>
+                    <div class="not"><h4>Office Details</h4></div>
+                    <textarea name="details" id="details" cols="30" rows="10" class="details"></textarea>
+                    <button type="submit" class="sign_btn" id="officeCreate"> Submit</button>
+                </div>
+            </div>           
+       </div>
+<script src="/politico/UI/js/createOffice.js"></script>      
+</body>
+
+</html>

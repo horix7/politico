@@ -1,0 +1,5 @@
+let against = document.querySelector('#status')
+let other = document.querySelector('#other')
+let files = document.querySelectorAll('#logo')
+let details = document.querySelector('#details')
+let createPetition = document.querySelector('#createPetition')
