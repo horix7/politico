@@ -1,0 +1,961 @@
+
+:root {
+    --main-color: #EAECFE;
+    --second-color: #020049;
+    --third-color: #0265FF;
+    --text-color: #040F20;
+    --light-color: #A8CAFC ;
+}
+
+::placeholder {
+    color: var(--second-color);
+    padding-bottom: 100px
+}
+
+select {
+    background-color: var(--main-color);
+    color: var(--second-color);
+    outline: none;
+}
+
+label {
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: small;
+}
+
+body {
+    color: var(--second-color);
+}
+h2, h3, h1, h4, span{
+    font-family: sans-serif;
+    color: var(--second-color)
+}
+p {
+    color: var(--second-color)
+}
+body {
+    background-color: var(--main-color);
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+
+input {
+
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: var(--text-color);
+}
+
+button {
+    color: var(--main-color);
+    background-color: var(--third-color);
+    border: none;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+.sign_form {
+    top: 50px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.inputs_sign {
+    margin: 50px;
+    border-bottom: 2px solid var(--third-color);
+    padding: 10px;
+    border-radius: 10px;
+}
+.inputs_sign, .sign_btn, .logo {
+    margin-top: auto;
+    align-self: center;
+    width: 500PX;
+    height: 40px;
+}
+
+.inputs_sign input {
+    font-size: smaller;
+    margin-left: 170px;
+    justify-content: center;
+    margin-bottom: 100px;
+    padding-bottom: 100px;
+}
+
+.logo {
+    padding-bottom: 100px;
+    text-align: center;
+}
+.logo a {
+    text-decoration: none;
+}
+.logo h1{
+    font-size: xxx-large;
+    color: var(--third-color);
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.sign_up {
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+}
+.inputs_sign1, .sign_up_btn {
+    width: 350px;
+    height: 40px;
+    border: none;
+    margin: 15px;
+}
+
+.inputs_sign1 {
+    font-size: medium;
+    padding-left: 20px;
+    border-bottom: 2px solid var(--third-color);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.main_up {
+    display: grid;
+    grid-template-columns: 20% 1% 79% ;
+}
+.midd {
+    margin-top: 100px;
+    background-color: var(--light-color);
+    width: 2px;
+    height: 80%;
+    margin-left: 80px;
+}
+
+.main_1 {
+    margin-left: 40px;
+    margin-top: 40px;
+    text-align: center;
+    
+}
+.main_1 h1{
+    font-size: xx-large;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 100px;
+
+}
+.option2 {
+    background-color: var(--third-color);
+
+}
+
+.option1 {
+    background-color: var(--light-color);
+    border-bottom: solid var(--third-color) 2px;
+
+}
+
+.option1, .option2 {
+    cursor: pointer;
+    width: 100%;
+    margin-left: 20px;
+    display: grid;
+    grid-template-rows: 50px 50px;
+    margin-top: 20px;
+}
+.option2 h1 {
+    color:var(--light-color);
+
+}
+.option1 h1 {
+    color:var(--third-color);
+}
+
+.option1 h1, .option2 h1 {
+    margin-top: 14%;
+    font-weight: bolder;
+    font-family: sans-serif;
+    font-size: x-large;
+}
+
+.extra {
+    margin-top: 40px;
+    font-family: sans-serif;
+    color: var(--second-color);
+}
+.extra a {
+    color: var(--third-color);
+
+}
+.landingNav {
+    margin: 40px;
+    padding: 20px;
+    background-color: var(--third-color);
+    border: 1px solid var(--light-color);
+    display: grid;
+    border-radius: 30px;
+    grid-template-columns: 10% 10% 10% 50% 10% 10%;
+}
+
+.landingNav div a {
+    text-decoration: none;
+    font-size: large;
+    font-family: sans-serif;
+    color: var(--main-color);
+}
+
+.account {
+    display: grid;
+    grid-template-columns: 25% 70% 5%;
+}
+
+.background {
+    width: 100%;
+    height: 200px;
+    background: var(--light-color);
+    text-align: center;
+    border-bottom: 200px;
+}
+
+.background img {
+    width: 200px;
+    height: 200px;
+    margin-top: 10%;
+    border-radius: 50%;
+}
+
+.info {
+    justify-content: center;
+}
+.table {
+    margin-top: 200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+}
+
+ul {
+    list-style-type: none;
+}
+.table ul li{
+    width: 100%;
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+.first {
+   color: var(--third-color);
+   font-size: 30px; 
+   text-transform: uppercase;
+   border-bottom: 1px solid var(--light-color);
+}
+
+.edit {
+    width: 30%;
+    margin-left: 70%;
+    height: 35px;
+    border-bottom: 20px;
+}
+.firs {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 15px;
+    font-weight: bold;
+    font-size: xx-large;
+    padding-bottom: 20px;
+    color: var(--second-color)
+}
+
+.menu ul .fis{
+    width: 70%;
+    /* text-align: center; */
+    font-size: medium;
+    padding: 20px;
+    background-color: var(--main-color);
+    margin: 10px;
+    border: var(--light-color) 2px solid;
+    font-family: sans-serif;
+    color: var(--second-color);
+}
+.inline {
+    display: flex;
+    flex-direction: row;
+}
+
+.inline div{
+    width: 120px;
+    background-color: var(--third-color);
+    padding: 5px;
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+    font-size: medium;
+    font-family: sans-serif;
+}
+
+.all-parties {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.active {
+    width: 70%;
+    font-size: medium;
+    padding: 20px;
+    background-color: var(--light-color);
+    margin: 10px;
+    border: var(--light-color) 2px solid;
+    font-family: sans-serif;
+    color: var(--second-color);
+}
+
+.parties ul li{
+    text-align: center;
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+}
+
+.far, .fas {
+    color: var(--second-color)
+}
+
+.list {
+    display: grid;
+    grid-template-columns: 10% 20% 40% 5% 20%;
+}
+
+.list div button {
+    width: 100%;
+    height: 100%;
+    border: 40px solid var(--main-color);
+    background-color: var(--third-color);
+    color: var(--main-color);
+    font-size: large;
+}
+
+.list div img {
+    max-width: 100%;
+    height: auto;
+}
+.list div h2 {
+    padding-left: 5%;
+}
+
+ol li {
+    text-decoration: none;
+    font-family: sans-serif;
+    color: var(--second-color);
+}
+
+ol {
+    list-style-type: none;
+}
+
+.part-head {
+    font-family: sans-serif;
+    text-transform: uppercase;
+    color: var(--second-color)
+}
+
+.grids {
+    margin-left: -50px;
+}
+.offices {
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+
+}
+
+.offices .box {
+    padding: 4%;
+    background-color: var(--light-color);
+    border: 15px solid var(--main-color);
+}
+
+.offices div h1 {
+    font-family: sans-serif;
+    color: var(--second-color);
+}
+
+.offices div h4 {
+    font-family: sans-serif;
+    font-weight: lighter;
+    color: var(--second-color);
+
+}
+
+.offices div button {
+    width: 30%;
+    height: 30px;
+    color: var(--main-color);
+
+}
+.candindate {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.back {
+    width: 100%;
+    height: 100px;
+    background: var(--light-color);
+    border-bottom: 200px;
+}
+.party-candidates {
+    display: grid;
+    grid-template-columns: 10% 70% 30%;
+}
+.party-candidates div img {
+    margin-top: 30%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; 
+}
+
+.party-candidates div button {
+    margin-top: 10%;
+    width: 100px;
+    height: 40px;
+}
+.party-candidates div h1, .party-candidates div h4 {
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+.back img {
+    width: 100px;
+    margin-left: 5%;
+    height: 100px;
+    margin-top: 10%;
+    border-radius: 50%; 
+}
+
+.candindate .candindate-info {
+    margin-top: 15%;
+}
+
+.candindate div button {
+    width: 30%;
+    height: 40px;
+    float: right;
+}
+
+.candindate .box {
+    border: 10px solid var(--main-color)
+}
+
+.party-head {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+}
+
+.party-head img {
+    /* width: 300px; */
+    height: 200px;
+}
+
+.party-candidates div p {
+    margin-top: -10px;
+}
+
+
+.politician-head {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.politician-head div img {
+    width: 50%;
+    height: 90%;
+    border-radius: 50%;
+}
+
+.btn {
+    margin-top: 10%;
+    width: 100px;
+    height: 30px;
+}
+
+.vote  {
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.politician-head div div p {
+    margin-top: -4%;
+}
+
+.inline-content {
+    display: grid;
+    grid-template-columns: 70% 10% 20%;
+}
+
+.inline-div {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.counter {
+    padding: 20px;
+    font-size: xx-large;
+    font-family: sans-serif;
+}
+
+.voted {
+    /* display: none; */
+    width: 90%;
+    text-align: center;
+
+}
+
+.cand {
+    background-color: var(--second-color);
+}
+
+.extra p {
+    margin-top: 10px;
+    float: right;
+}
+
+.extra p span {
+    width: 100px;
+    padding: 5px;
+    color: var(--third-color);
+    border-radius: 100%;
+    font-weight: bolder;
+    font-size: large;
+}
+
+
+.heading {
+    margin: 0px;
+    display: grid;
+    height: 100%;
+    grid-template-columns: 20% 80%;
+}
+
+
+.nav-bar {
+    background-color: var(--second-color);
+    transition: width 600ms ease;
+    height: 100%;
+    position: sticky;
+    display: grid;
+    grid-template-rows: 10% 5%  5% 5% 5% 5% 30% 30%;
+
+  }
+  
+  .holder {
+    padding: 25px;
+    
+
+  }
+
+  .icon {
+      color: var(--main-color);
+      font-size: 20px;
+      padding: 10px;
+  }
+
+  .holder p {
+      color: var(--main-color);
+      font-weight: lighter;
+      font-size: medium;
+      font-family: sans-serif;
+  }
+
+  .main-holder {
+      background-color: var(--third-color);
+      width: 100%;
+      border: 10px solid var(--third-color);
+      margin: -10px;
+      text-align: center;
+  }
+  .main-holder h1 {
+      color: var(--main-color);
+      text-transform: uppercase;
+      font-size: xx-large;
+  }
+
+  .rest {
+      margin-left: 5%;
+  }
+  .rest h1 {
+      color: var(--third-color);
+      font-weight: lighter;
+  }
+
+  .dash1 h1{
+    text-transform: uppercase;
+    color: var(--third-color);
+    font-weight: lighter;
+  }
+
+  .dash-info {
+      display: grid;
+      grid-template-columns: 35% 35%;
+      align-items: center;
+      text-align: center;
+  }
+
+  .dash-info h3{
+      margin: 5px;
+      width: 100%;
+    padding: 30px;
+   background-color: var(--third-color);
+   border-left: 5px var(--main-color) solid;
+   color: var(--main-color);
+   text-transform: uppercase;
+  }
+
+  .inline-two {
+      width: 70%;
+      display: grid;
+      grid-template-columns: 70% 20%;
+      border-bottom: 1px solid var(--light-color);
+  }
+
+  .inline-two h2 {
+      font-size: large;
+      font-weight: normal;
+  }
+ .inline-two p {
+     margin-top: -1%;
+ }  
+.ffa {
+    font-size: xx-large; color: var(--third-color);
+    padding:10px;
+}
+
+.gove-input {
+    margin-top: 10px;
+    width: 80%;
+    height: 40px;
+    padding: 10px;
+    padding-left: 20px;
+    border: 2px solid var(--light-color);
+    border-radius: 10px;
+}
+
+.row {
+    display: grid;
+
+}
+
+.not {
+    margin-left: 6px;
+    margin-bottom: -3px;
+}
+
+.political-details {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.details {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 85%;
+    background-color: var(--main-color);
+    height: 300px;
+    max-height: 500px;
+    outline: none;
+    border: 1px var(--light-color) solid;
+}
+
+.upload + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: red;
+}
+
+.upload::-webkit-file-upload-button {
+    /* visibility: hidden;
+     */
+     background-color: var(--third-color);
+    border: 5px solid var(--third-color);
+    color: var(--main-color);
+  }
+
+ .ikon {
+     color: var(--second-color);
+     padding-left: 20px;
+     font-size: large;
+ }
+.ins {
+    margin-top: -2%;
+}
+ .inline-three {
+     display: grid;
+     grid-template-columns: 10% 70% 20%;
+ }
+
+ .inline-three img {
+     justify-content: center;
+ }
+
+ .labeled {
+     margin-left: 5%;
+     color: var(--main-color);
+     background-color: var(--third-color);
+     font-size: x-small;
+     font-family: sans-serif;
+     font-weight: lighter;
+     padding: 2px;
+ }
+
+ .actions {
+     margin-top: 15%;
+ }
+
+ .vote-num {
+     width: 20%;
+     color: var(--second-color);
+     font-family: sans-serif;
+     font-size: 20px;
+     padding: 5px;
+     padding-left: 10px;
+     border: 1px solid var(--second-color);
+ }
+
+ .new-row {
+     display: grid;
+     grid-template-rows: 50% 50%;
+ }
+
+.details2 {
+    background-color: var(--main-color);
+    border: 1px solid var(--light-color);
+    min-width: 470px;
+    max-width: 470px;
+    max-height: 200px;
+    min-height: 200px;
+}
+
+.bad  {
+    color: red;
+
+}
+
+.bad-btn {
+    background-color: red;
+}
+
+.second-nav {
+    background: rgba(0, 11, 49, 0.486);
+    color: var(--main-color);
+}
+
+.second-nav div a {
+    color: var(--main-color);
+}
+
+.heading2 {
+    background-image: url(https://si.wsj.net/public/resources/images/BN-UO516_3aFS0_OR_20170805044144.jpg?width=620&height=413);
+    background-size: 100%;
+    margin: 0px
+}
+
+.mid {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+}
+
+.mid-content {
+    margin: 40px;
+}
+
+.mid-content2 {
+    margin-top: 10%;
+    width: 70%;
+    background-color: rgba(0, 0, 0, 0.534) ;
+    padding: 20px;
+    
+}
+
+.mid-content h1 {
+    color: var(--main-color);
+    font-weight: bolder;
+}
+
+.mid-content p {
+    color: var(--main-color);
+}
+
+.mid-content2 button {
+    margin-top: 10%;
+}
+
+@media screen and (max-width: 900px) {
+    body {
+      margin: 0px;
+    }
+    .politician-head {
+        display: grid;
+        grid-template-columns: 30% 70%;
+    }
+    .politician-head div img {
+        padding: 20px;
+        width: 70%;
+        height: 40%;
+        border-radius: 50%;
+    }
+
+    .vote {
+        display: grid;
+        grid-template-columns: 70% 20%;
+    }
+
+    .vote a .btn {
+        margin-top: 40%;
+        width: 100px;
+        height: 30px;
+    }
+
+    .vote div {
+        width: 70%
+    }
+    
+    .party-candidates div button {
+        margin-top: 10%;
+        width: 90%;
+        height: 30px;
+    }
+    .party-candidates {
+        grid-template-columns: 10% 70% 20%;
+    }
+    .main_up {
+        grid-template-columns: 0% 0% 100%;
+    }
+    .office-body {
+        text-align: center;
+    }
+    .main_1, .midd, .menu {
+        visibility: hidden;
+    }
+
+    .all-parties {
+        display: grid;
+        grid-template-columns: 0% 100%;
+    }
+
+    .candindate {
+        display: list-item;
+    }
+   
+    .grids {
+        margin-left: 0px;
+    }
+
+    .candindate div a .view-more {
+        margin-top: -10%;
+    }
+
+    .candindate-info div{
+        margin-top: -3%;
+    }
+
+    .party-head div img {
+        width: 80%;
+        padding: 10px;
+    }
+
+    .sign_form .inputs_sign, .sign_btn, .office-head{
+        width: 100%;
+
+    }
+    .list {
+        display: grid;
+        grid-template-columns: 15% 30% 50% 5% 0%;
+        align-items: center;
+    }
+
+    .view-more {
+        margin-left: 20%;
+        width: 60%;
+        height: 30px
+    }
+    .account {
+        grid-template-columns: 0% 100% 0%;
+    }
+
+    .offices {
+        display: grid;
+        grid-template-rows: 50% 50%;
+    }
+    .background img h2 {
+        margin-top: -10%;
+    }
+    .first {
+        border: none;
+    }
+    .nav-bar {
+        display: none;
+    }
+    .heading {
+        display: grid;
+        height: 100%;
+        grid-template-columns: 90% 0%;
+    }
+
+    .political-details {
+        display: list-item;
+    } 
+    .details {
+        width: 100%;
+        max-width: 100%;
+        max-height: 300px;
+    }
+    .row {
+        width: 100%;
+        display: list-item;
+    }
+
+    .gove-input {
+        width: 100%;
+    }
+
+    .actions i{
+        padding: 2px;
+    }
+
+    .inline-three img{
+        width: 100%;
+    }
+
+    .ins {
+        padding-left: 10px;
+    }
+    .ins h3 {
+        width: 300%;
+        text-transform: uppercase;
+    }
+
+    .dash-info {
+        display: list-item;
+        width: 80%;
+    }
+
+    .inline-two {
+        width: 120%;
+        
+    }
+    }
+  
+
+
+
