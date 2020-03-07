@@ -761,19 +761,30 @@ ol {
 .heading2 {
     margin: 0px
 }
+.mid-back {
+    background-image: url(https://thepeoplespeak.org.uk/wp-content/uploads/2012/12/3027643586_8650830d4d_z.jpg);
+}
 
+.second-nav div a{
+    color: var(--main-color)
+}
 .mid {
-    padding: 50px;
+    margin-top: -10%;
+    background-color: rgba(28, 26, 193, 0.752);
+    padding: 100px;
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 60% 30%;
     align-items: center;
 }
 
 .new-info {
+    margin-top: 15%;
     font-size: large;
     font-family: sans-serif;
 }
-
+.new-info p {
+    color: var(--main-color);
+}
 .mid-content {
     margin: 40px;
 }
