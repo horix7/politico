@@ -190,11 +190,14 @@ a {
     color: var(--third-color);
 
 }
+.landingNav:hover {
+    border-color: var(--light-color);
+}
 .landingNav {
     margin: 40px;
     padding: 20px;
-    background-color: var(--third-color);
-    border: 1px solid var(--light-color);
+    background-color: var(--main-color);
+    border: 1px solid var(--third-color);
     display: grid;
     border-radius: 30px;
     grid-template-columns: 10% 10% 10% 50% 10% 10%;
@@ -204,7 +207,7 @@ a {
     text-decoration: none;
     font-size: large;
     font-family: sans-serif;
-    color: var(--main-color);
+    color: var(--second-color);
 }
 
 .account {
@@ -754,25 +757,21 @@ ol {
     background-color: red;
 }
 
-.second-nav {
-    background: rgba(0, 11, 49, 0.486);
-    color: var(--main-color);
-}
-
-.second-nav div a {
-    color: var(--main-color);
-}
 
 .heading2 {
-    background-image: url(https://si.wsj.net/public/resources/images/BN-UO516_3aFS0_OR_20170805044144.jpg?width=620&height=413);
-    background-size: 100%;
     margin: 0px
 }
 
 .mid {
+    padding: 50px;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 60% 40%;
     align-items: center;
+}
+
+.new-info {
+    font-size: large;
+    font-family: sans-serif;
 }
 
 .mid-content {
@@ -804,6 +803,11 @@ ol {
     body {
       margin: 0px;
     }
+    .landingNav {
+        display: none;
+    }
+
+
     .politician-head {
         display: grid;
         grid-template-columns: 30% 70%;
@@ -875,13 +879,16 @@ ol {
     }
 
     .sign_form .inputs_sign, .sign_btn, .office-head{
-        width: 100%;
+        width: 80%;
 
     }
     .list {
         display: grid;
         grid-template-columns: 15% 30% 50% 5% 0%;
         align-items: center;
+    }
+    .fa-bars {
+        color:var(--second-color)
     }
 
     .view-more {
@@ -956,6 +963,24 @@ ol {
     }
     }
   
+    .bottom {
+        padding-left: 5%;
+        display: grid;
+        grid-template-columns: 30% 30% 30%;
 
+    }
 
+    hr {
+        color: var(--third-color)
+    }
+    .fis-box {
+        margin: 10px;
+        padding: 10px;
+        border: 0.5px solid var(--light-color)
+    }
+
+    .fis-box p {
+        color: var(--second-color);
+        padding: 2ex;
+    }
 
