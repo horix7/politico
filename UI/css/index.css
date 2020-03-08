@@ -1,10 +1,12 @@
 
 :root {
-    --main-color: #EAECFE;
+    --nav-color:rgb(4, 1, 15);
+    --main-color: rgb(232, 252, 250);
     --second-color: #020049;
-    --third-color: #0265FF;
+    --third-color: rgb(21, 4, 255);
     --text-color: #040F20;
-    --light-color: #A8CAFC ;
+    --light-color: rgba(0, 47, 255, 0.453) ;
+    --logo-color: white
 }
 
 ::placeholder {
@@ -25,6 +27,7 @@ label {
 }
 
 body {
+    margin: 0px;
     color: var(--second-color);
 }
 h2, h3, h1, h4, span{
@@ -113,13 +116,22 @@ a {
     border: none;
     margin: 15px;
 }
+.inputs_sign2 {
+    width: 20%;
+    border: 1px solid var(--third-color);
+    height: 20px;
+    padding: 12px;
+    margin: 16px;
+    border-radius: 15px;
 
+}
 .inputs_sign1 {
+     height: 20px;
     font-size: medium;
-    padding-left: 20px;
-    border-bottom: 2px solid var(--third-color);
-    padding: 10px;
-    border-radius: 10px;
+    padding: 30px;
+    border: 1px solid var(--third-color);
+    padding: 12px;
+    border-radius: 12px;
 }
 
 .main_up {
@@ -167,7 +179,7 @@ a {
     margin-top: 20px;
 }
 .option2 h1 {
-    color:var(--light-color);
+    color:var(--main-color);
 
 }
 .option1 h1 {
@@ -193,21 +205,44 @@ a {
 .landingNav:hover {
     border-color: var(--light-color);
 }
+.nav-logo {
+    margin: 0px;
+    margin-top: -5px;
+    font-weight: bolder;
+    font-size: x-large;
+    font-family: sans-serif;
+    color: var(--logo-color);
+}
+.nav-text {
+    color: var(--main-color);
+    margin-top: -100%;
+}
 .landingNav {
-    margin: 40px;
-    padding: 20px;
-    background-color: var(--main-color);
-    border: 1px solid var(--third-color);
+    padding: 15px;
+    background-color: var(--nav-color);
     display: grid;
-    border-radius: 30px;
-    grid-template-columns: 10% 10% 10% 50% 10% 10%;
+    margin-bottom: 40px;
+    grid-template-columns: 10% 10% 10% 45% 15% 10%;
+}
+.user {
+    color: var(--main-color);
+}
+
+.second-nav {
+
+        padding: 15px;
+        background-color: transparent;
+        display: grid;
+        margin-bottom: 40px;
+        grid-template-columns: 10% 10% 10% 50% 10% 10%;
+    
 }
 
 .landingNav div a {
     text-decoration: none;
     font-size: large;
     font-family: sans-serif;
-    color: var(--second-color);
+    color: var(--main-color);
 }
 
 .account {
@@ -237,7 +272,7 @@ a {
     margin-top: 200px;
     width: 100%;
     display: grid;
-    grid-template-columns: 30% 30% 30%;
+    grid-template-columns: 30% 70%;
 }
 
 ul {
@@ -544,20 +579,34 @@ ol {
     grid-template-columns: 20% 80%;
 }
 
+.mobile-menu {
+    display: none;
+    width: 100%;
+    text-align: center;
+}
+ .ikcons {
+     background-color: var(--nav-color);
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+}
+
+.ikcons div i {
+    color: var(--main-color);
+    font-size: x-large;
+}
 
 .nav-bar {
     background-color: var(--second-color);
     transition: width 600ms ease;
     height: 100%;
-    position: sticky;
     display: grid;
     grid-template-rows: 10% 5%  5% 5% 5% 5% 30% 30%;
 
   }
   
   .holder {
-    padding: 25px;
-    
+    padding: 20px;
 
   }
 
@@ -709,9 +758,29 @@ ol {
  .inline-three img {
      justify-content: center;
  }
+ .updates {
+     margin-left: 5%;
+     
+ }
+ .content-two {
+     display: grid;
+     grid-template-columns: 80% 20%;
+ }
 
+ .new-content {
+     width: 80%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+ }
+
+ .new-petition {
+    width: 80%;
+  display: list-item;
+ }
  .labeled {
      margin-left: 5%;
+     margin-right: 10px;
      color: var(--main-color);
      background-color: var(--third-color);
      font-size: x-small;
@@ -759,7 +828,9 @@ ol {
 
 
 .heading2 {
-    margin: 0px
+    margin: 0px;
+    width: 100%;
+
 }
 .mid-back {
     background-image: url(https://thepeoplespeak.org.uk/wp-content/uploads/2012/12/3027643586_8650830d4d_z.jpg);
@@ -810,14 +881,96 @@ ol {
     margin-top: 10%;
 }
 
-@media screen and (max-width: 900px) {
+.listing {
+    font-family: sans-serif;
+    font-size: large;
+    background-color: var(--main-color);
+    margin: 10px;
+    width: 80%;
+    margin-left: -10%;
+    padding: 15px;
+    border-bottom: 1px solid var(--second-color);
+}
+.listing:hover {
+    background-color: var(--second-color);
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+.bottom {
+    margin-top: -5%;
+    padding-left: 5%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    transition: cubic-bezier(0.6, 0.28, 0.35, 0.45);
+    transition-duration: 0.2s;
+
+
+}
+
+.indec {
+    padding-left: 5%;
+    display: grid;
+    grid-template-columns: 20%  70%;
+    transition: cubic-bezier(0.6, 0.28, 0.35, 0.45);
+    transition-duration: 0.2s;
+}
+
+hr {
+    color: var(--third-color)
+}
+.fis-box, sec-box {
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--logo-color);
+    box-shadow: 2px 2px  var(--third-color);
+    
+}
+
+.fis-box p {
+    color: var(--second-color);
+    padding: 2ex;
+}
+
+.land {
+font-family: sans-serif;
+font-size: x-large;
+/* border-bottom: 1px solid var(--second-color); */
+}
+.nav-btn {
+background-color: var(--main-color);
+color: var(--second-color);
+width: 80%;
+height: 70%;
+}
+
+.nav-btn2 {
+background: transparent;
+color: var(--main-color);
+width: 80%;
+height: 70%;
+font-size: large;
+}
+
+.profile-menu {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+@media screen and (max-width: 1000px) {
     body {
       margin: 0px;
+    }
+    .mobile-menu {
+        display: block;
+
     }
     .landingNav {
         display: none;
     }
-
+    .mid {
+        grid-template-columns: 100% 0%;
+        padding: 20px;
+    }
 
     .politician-head {
         display: grid;
@@ -911,10 +1064,6 @@ ol {
         grid-template-columns: 0% 100% 0%;
     }
 
-    .offices {
-        display: grid;
-        grid-template-rows: 50% 50%;
-    }
     .background img h2 {
         margin-top: -10%;
     }
@@ -959,7 +1108,7 @@ ol {
         padding-left: 10px;
     }
     .ins h3 {
-        width: 300%;
+        width: 100%;
         text-transform: uppercase;
     }
 
@@ -972,26 +1121,75 @@ ol {
         width: 120%;
         
     }
+    .bottom {
+        margin-top: 0px;
+        padding-left: 0px;
+        display: list-item;
+    }
+
+    .inputs_sign2 {
+        width: 40%;
+    }
+
+    .sign_up {
+        margin-left: 10px;
+    }
+    .indec {
+        padding-left: 5%;
+        display: list-item;
+
+    }
+
+    .votings {
+        margin-top: 10%;
+    }
+
+    .new-content {
+        width: 80%;
+        display: list-item;
+    }
+
+    .content-two {
+        display: grid;
+        grid-template-columns: 90% 10%;
+    }
+
+    .content-two button {
+        margin-top: 90%;
+        margin-left: 50%;
+        height: 20px;
+    }
+
+    .offices {
+        display: list-item;
+    }
+
+    .offices div button {
+        margin-left: 0px;
+        width: 30%;
+        height: 30px;
+        color: var(--main-color);
+    }
+
+    .office-head {
+        width: 100%;
+    }
+
+   
+    .vote-num {
+        width: 20%;
+        color: var(--second-color);
+        font-family: sans-serif;
+        font-size: smaller;
+        padding: 5px;
+        padding-left: 10px;
+        border: 1px solid var(--second-color);
+    }
+
+    .rest .mobile-menu {
+        width: 130%;
+        margin-left: -10%;
+    }
     }
   
-    .bottom {
-        padding-left: 5%;
-        display: grid;
-        grid-template-columns: 30% 30% 30%;
-
-    }
-
-    hr {
-        color: var(--third-color)
-    }
-    .fis-box {
-        margin: 10px;
-        padding: 10px;
-        border: 0.5px solid var(--light-color)
-    }
-
-    .fis-box p {
-        color: var(--second-color);
-        padding: 2ex;
-    }
-
+   
