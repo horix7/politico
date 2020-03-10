@@ -14,6 +14,16 @@
     padding-bottom: 100px
 }
 
+.foot {
+    margin-top: 100px;
+    padding: 30px;
+    font-size: x-large;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-family: sans-serif;
+    color: var(--second-color);
+}
 select {
     background-color: var(--main-color);
     color: var(--second-color);
@@ -764,7 +774,12 @@ ol {
  }
  .content-two {
      display: grid;
-     grid-template-columns: 80% 20%;
+     grid-template-columns: 90% 10%;
+ }
+
+ .content-two .btn {
+     margin-left: 10%;
+     
  }
 
  .new-content {
@@ -772,12 +787,17 @@ ol {
     display: grid;
     grid-template-columns: 50% 50%;
 
+
  }
 
  .new-petition {
     width: 80%;
   display: list-item;
- }
+  border-bottom: 1px solid var(--second-color);
+  padding: 50px;
+}
+
+
  .labeled {
      margin-left: 5%;
      margin-right: 10px;
