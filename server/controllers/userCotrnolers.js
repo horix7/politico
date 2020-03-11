@@ -1,53 +1,102 @@
 
 import account from '../models/userAuth';
+import tokens from '../helpers/userTokens'
 
-const userInfo = {
+/*
+
+*/
+class userController {
     
     userSignUp(req, res) {
-        if (account.createUser(req.body) == 'invalid') {
+        account.createUser(req.body)
+        .then(results => {
+        if (results == "true") {
             return res.status(403).json({
                 "status": 403,
-                "error":"youremail provide is already in use "
+                "error":"email you provide the your information"
             });
         }
-     if (req.body == {}) {
+        else if (results == "email") {
             return res.status(403).json({
                 "status": 403,
-                "error":"you provided invalid information"
-            }); 
-          
-        } else { 
-            let newUSerInfo = account.createUser(req.body)
+                "error":"email you provide is already in use "
+            });
+        }
+        else { 
+            let newUSerInfo = results   
+
+            const {id,firstname , secondname, email, phone,userprofile,isadmin} =  newUSerInfo[0]
             return res.status(201).json({
                 "status": 201,
                 "data": [
+                    
                    {
-                        "token": newUSerInfo.token,
+                        "token": tokens.encode(req.body),
                         "user": {
-                            id: newUSerInfo.id,
-                            firstname: newUSerInfo.firstname,
-                            secondname: newUSerInfo.secondname,
-                            otherName: newUSerInfo.otherName,
-                            email: newUSerInfo.email,
-                            phoneNumber: newUSerInfo.phone,
-                            passportUrl: newUSerInfo.userprofile,
-                            isAdmin: newUSerInfo.isadmin
+                            id: id,
+                            firstname: firstname,
+                            secondname: secondname,
+                            email: email,
+                            phoneNumber: phone,
+                            passportUrl: userprofile || "",
+                            isAdmin: false
                         }
                     }
                 ]
                });
         }
-    },
+    
+    }
+        )
+        
+        
+    
+    }
 
     userSignIn(req, res) {
-       
-    },
+       account.logiUser(req.body)
+       .then(resi => {
+        if(resi == "no") {
+            return res.status(403).json({
+                "status": 403,
+                "error":"you are not registered in the system "
+            });
+        } else if (resi == "dont match") {
+            return res.status(403).json({
+                "status": 403,
+                "error":"your password does not match your email"
+            }); 
+        }
+        else {
+            const {id,firstname , secondname, email, phone,userprofile,isadmin, password} =  resi[0]
+            return res.status(200).json({
+                "status": 200,
+                "data": [
+                    
+                   {
+                        "token": tokens.encode({id,email,isadmin}),
+                        "user": {
+                            id: id,
+                            firstname: firstname,
+                            secondname: secondname,
+                            email: email,
+                            phoneNumber: phone,
+                            passportUrl: userprofile || "",
+                            isAdmin: isadmin || false,
+                            password: password
+                        }
+                    }
+                ]
+               });
+        }
+       })
+    }
     getAllUsers(req, res) {
       
-    },
+    }
     getOneUser(req, res) {
        
     }
 }
 
-export default userInfo
+export default new userController()
