@@ -1,6 +1,5 @@
--- DROP TABLE IF EXISTS "USERS";
 
-CREATE TABLE "USERS" (
+CREATE TABLE "users" (
   id SERIAL PRIMARY KEY,
   firstName varchar(255) default NULL,
   secondName varchar(255) default NULL,
@@ -17,7 +16,7 @@ CREATE TABLE "USERS" (
 
 
 
-CREATE TABLE "PARTIES" (
+CREATE TABLE "parties" (
   id SERIAL PRIMARY KEY,
   partyName varchar(255) default NULL,
   partInfo varchar(255) default NULL,
@@ -32,7 +31,7 @@ CREATE TABLE "PARTIES" (
 );
 
 
-CREATE TABLE "OFFICES" (
+CREATE TABLE "offices" (
   id SERIAL PRIMARY KEY,
   officeName varchar(255) default NULL,
   officeInfo varchar(255) default NULL,
@@ -47,7 +46,7 @@ CREATE TABLE "OFFICES" (
 
 );
 
-CREATE TABLE "CANDIDATES" (
+CREATE TABLE "candidates" (
   id SERIAL PRIMARY KEY,
   firstName varchar(255) default NULL,
   secondName varchar(255) default NULL,
@@ -61,7 +60,7 @@ CREATE TABLE "CANDIDATES" (
 
 
 
-CREATE TABLE "VOTES" (
+CREATE TABLE "votes" (
   id SERIAL PRIMARY KEY,
   voteFor varchar(255) default NULL,
   office varchar(255) default NULL,
@@ -71,7 +70,7 @@ CREATE TABLE "VOTES" (
   voter varchar(255) default NULL
 );
 
-CREATE TABLE "PETITION" (
+CREATE TABLE "petition" (
   id SERIAL PRIMARY KEY,
   createBy varchar(255) default NULL,
   office varchar(255) default NULL,

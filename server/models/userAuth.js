@@ -1,57 +1,54 @@
+
+import { Client } from 'pg';
+import 'dotenv/config'
+
+let client = new Client({
+    user: "postgres",
+    password: "paul",
+    host: "localhost",
+    port: 5432,
+    database: "politico"
+})
+
+client.connect()
+// 
 class User {
-    constructor() {
-        this.message;
-
-        findId = (id) => {
-            let foundId = userData.allUsers.find(userId => userId.id === id);
-           let findIdB = foundId !== 'undefined'
-
-           if(findIdB) {
-               return foundId
-           } else {
-               return 'no'
-           }
-        };
-        
-        createUser = (newUser) => {
-            let inputData;
-            let ecnrypted = hashSync(newUser.password, 10)
-            if (!userData.allUsers.find(userEmail => newUser.email === userEmail.email)) {
-                inputData = {
-                    "id": userData.allUsers.length + 1,
-                    "token": tokens.encode({email:newUser.email, is_admin: false}),
-                    "email": newUser.email,
-                    "first_name": newUser.firstName,
-                    "last_name": newUser.lastName,
-                    "address": newUser.address,
-                    "phoneNumber": newUser.phoneNumber,
-                    "password": ecnrypted,
-                    "is_admin": false
-                }
-                userData.token = tokens.encode({email:newUser.email, is_admin: false})
-                userData.allUsers.push(inputData)
-                return inputData
-            }
-            else {
-                return 'invalid';
-            }
-        };
-
-        login = (userInput) => {
-            let resUser = userData.allUsers.find( user => user.email == userInput.email)
-
-            if(resUser) {
-                return resUser
-            } else {
-                return 'password does not match'
-            }
+    async createUser(newUser){
+        const allUsers = await client.query('select * from users');
+        let users = allUsers.rows
+        const userExist = users.some(n => n.email == newUser.email)
+        if(newUser == {}) {
+            return "no"
         }
-           
+        if (userExist) {
+            return "user exist"
+        } else {
+            let values = newUser.values()
 
-        findAllUsers = () => {
-            return userData.allUsers;
-        };
+            let results  = await client.query('insert into users (firstname,secondname,email,phone,nationalid,livesat,userid,password,userprofile) values ($1,$2,$3,$4,$5,$6,$7,$8,$9)', newUser)
+            console.log(values)
+            return results
+        }
+     }
+
+    async logiUser(userInfo) {
+        await client.connect()
+        const allUsers = await client.query('select * from users');
+        const userExist = allUsers.some(n => n.email == userInfo.email)
+        if (userExist) {
+
+            return "user exist"
+        } else {
+
+            return results
+        }
+    }
+
+    allUsers() {
+
     }
 }
 
+
+export default new User();
 
