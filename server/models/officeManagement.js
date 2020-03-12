@@ -1,5 +1,5 @@
+import token from '../helpers/userTokens'
 import { Client } from 'pg';
-import { encode, decode}  from '../helpers/userToken'
 
 let client = new Client({
     user: "postgres",
@@ -11,17 +11,29 @@ let client = new Client({
 
 client.connect()
 
+class Office {
+    async createOffice(officeInfo) {
+        const allOffices = await client.query('select * from offices');
+        const officeExist = allOffices.rows.some(n => n.officename == officeInfo.officename)
+        if(officeExist) {
+            return "office exists"
+        }else {
+            let data = `
+            INSERT INTO offices
+            (officename, officeinfo,officetype,goveremntid ,officeadress,officeleader ,officestatus ,leaderemail,logourl)
+            VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)
+            RETURNING * 
+            `
+            let inputs = [officeInfo.officename, officeInfo.officeinfo, officeInfo.officetype,officeInfo.goveremntid, officeInfo.officeaddress, officeInfo.officeleader,officeInfo.officestatus, officeInfo.leaderemail, officeInfo.logourl]
 
-let getUsers = async () => {
-    try {
-        let users = await client.query('select * from offices')
-        users = users.rows 
-    } catch(err) {
-        console.error('failed')
-    }
-    finally {
-        return users
+            await client.query(data,inputs)
+            let partyCreated = await client.query('select * from offices where officename=$1', [officeInfo.officename])
+
+            return partyCreated.rows
+        }
+
     }
 }
 
-console.log(getUsers())
+
+export default new Office()
