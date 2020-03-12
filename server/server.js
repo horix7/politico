@@ -1,9 +1,13 @@
 import express from "express"
 import router from './routes/userAuthRoutes'
+import parser  from 'body-parser'
+
 const app = express()
 
+app.use(parser.urlencoded({ extended: true }));
+app.use(parser.json());
 
-app.use(express.json());
+
 
 app.use('/api/v1', router)
 

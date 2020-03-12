@@ -1,5 +1,5 @@
 
-import { Client } from 'pg';
+import { Client, Pool } from 'pg';
 import 'dotenv/config'
 
 let client = new Client({
@@ -17,30 +17,49 @@ class User {
         const allUsers = await client.query('select * from users');
         let users = allUsers.rows
         const userExist = users.some(n => n.email == newUser.email)
-        if(newUser == {}) {
-            return "no"
+        if( Object.keys(newUser).length <= 1) {
+            return "true"
+        } else if (userExist) {
+            return "email"
         }
-        if (userExist) {
-            return "user exist"
-        } else {
-            let values = newUser.values()
+        else {
+            let values = Object.values(newUser)     
+            
+            let results = 
+            `INSERT INTO users
+             (firstname,secondname,email,phone,nationalId,password,userprofile,address,userId,usertype,isadmin) VALUES
+             ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) RETURNING * 
+            `
 
-            let results  = await client.query('insert into users (firstname,secondname,email,phone,nationalid,livesat,userid,password,userprofile) values ($1,$2,$3,$4,$5,$6,$7,$8,$9)', newUser)
-            console.log(values)
-            return results
+             let inserts = [newUser.firstname,newUser.secondname ,newUser.email,newUser.phone,newUser.nationalid,newUser.password,newUser.userprofile,newUser.address,newUser.userId,newUser.usertype, newUser.isadmin]
+             
+             await client.query(results, inserts, (err) => {
+                 if(err) {
+                     console.log(err)
+                 }
+             })
+
+             let rezult = await client.query('select * from users where email=$1', [newUser.email])
+            
+             return rezult.rows
         }
      }
 
     async logiUser(userInfo) {
-        await client.connect()
-        const allUsers = await client.query('select * from users');
-        const userExist = allUsers.some(n => n.email == userInfo.email)
+        const Alluser = await client.query('select * from users');
+        const users = Alluser.rows
+        let userExist = users.some(n => n.email == userInfo.email)
         if (userExist) {
-
-            return "user exist"
+            let fullInfo = await client.query('select * from users where email=$1', [userInfo.email]);
+           if(fullInfo.rows[0].password == userInfo.password) {
+                return fullInfo.rows
+           } else {
+            
+               return "dont match"
+           }           
+            
         } else {
-
-            return results
+            return "no"
         }
     }
 
