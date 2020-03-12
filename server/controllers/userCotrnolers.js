@@ -31,7 +31,7 @@ class userController {
                 "data": [
                     
                    {
-                        "token": tokens.encode(req.body),
+                        "token": tokens.encode({isadmin, firstname,id,email}),
                         "user": {
                             id: id,
                             firstname: firstname,
