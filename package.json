@@ -4,7 +4,7 @@
   "description": "online voting system for the goverment",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon --exec babel-node server/server.js",
+    "start": "node --exec babel-node server/server.js",
     "test": "nyc mocha --require @babel/register server/tests/*.js --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
