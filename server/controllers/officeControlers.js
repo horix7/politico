@@ -79,11 +79,50 @@ class officeManagement {
         })
     }
 
-    editoffice() {
-
+    editOffice(req,res) {
+        office.updateOffice(req.params.id, req.body)
+        .then(results => {
+            if(results == "office dont exist") {
+                return res.status(403).json({
+                    "status": 403,
+                    "error":"office you are updating does not exist "
+                });
+            } else {
+                console.log(results)
+                const {id, officename, officeinfo,foundeon,officeaddress,logourl} = results[0]
+                return res.status(201).json({
+                    "status": 201,
+                     "data":{
+                         id: id,
+                         name: officename  || "",
+                         hqaddress: officeaddress || "",
+                         logourl: logourl || "",
+                         officeinfo: officeinfo || "",
+                         foundeon: foundeon || ""
+                     }
+                }); 
+            }
+        })
     }
 
-    deletePartry() {
+    deleteOffice(req,res) {
+        office.deleteOffice(req.params.id)
+        .then(results => {
+            if(results == "office dont exist") {
+                return res.status(403).json({
+                    "status": 403,
+                    "error":"office does not exists "
+                });   
+            } else {
+                console.log('done')
+                return res.status(200).json({
+                    "status": 200,
+                     "data":[{
+                         "message": `deleted office ${results[0].officename} successfully`
+                     }]
+                }); 
+            }
+        })
         
     }
 }

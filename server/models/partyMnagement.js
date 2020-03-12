@@ -49,6 +49,40 @@ class Party {
         let allParties = await client.query('select * from parties')
         return allParties.rows
     }
+    
+    async updateParty(partyId, partyInfo) {
+        const allParties = await client.query('select * from parties');
+        const partyExist = allParties.rows.some(n => n.id == partyId)
+        if(partyExist) {
+            let data = `
+            UPDATE parties SET 
+            partyname=$1, partinfo=$2,foundedon=$3,goveremntid=$4,partyaddress=$5,partyleader=$6,partymortal=$7,leaderemail=$8,logourl=$9
+            WHERE id=$10 
+            `
+            let inputs = [partyInfo.partyname, partyInfo.partinfo, partyInfo.foundedon,partyInfo.goveremntid, partyInfo.partyaddress, partyInfo.partyleader,partyInfo.partymortal, partyInfo.leaderemail, partyInfo.logourl, partyId]
+
+            await client.query(data,inputs)
+            let partyCreated = await client.query('select * from parties where id=$1', [partyId])
+
+            return partyCreated.rows
+            
+        }else {
+            return "party dont exist"
+        }
+    }
+
+    async deleteParty(partyId) {
+        const party = await client.query('select * from parties where id=$1', [partyId])
+
+        if(party && party.rows.length > 0) 
+         {
+            await client.query('DELETE FROM parties WHERE id=$1', [partyId])
+            return party.rows 
+        } else {
+            return "party dont exist"
+        }
+
+    }
 }
 
 

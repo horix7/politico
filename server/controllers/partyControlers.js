@@ -77,11 +77,48 @@ class PartyManagement {
         
         })
     }
-    editParty() {
-
+    editParty(req, res) {
+        party.updateParty(req.params.id, req.body)
+        .then(results => {
+            if(results == "party dont exist") {
+                return res.status(403).json({
+                    "status": 403,
+                    "error":"party you are updating does not exist "
+                });
+            } else {
+                const {id, partyname, partyinfo,foundeon,partyaddress,logourl} = results[0]
+                return res.status(200).json({
+                    "status": 200,
+                     "data":{
+                         id: id,
+                         name: partyname  || "",
+                         hqaddress: partyaddress || "",
+                         logourl: logourl || "",
+                         partyinfo: partyinfo || "",
+                         foundeon: foundeon || ""
+                     }
+                }); 
+            }
+        })
     }
 
-    deletePartry() {
+    deletePartry(req,res) {
+        party.deleteParty(req.params.id)
+        .then(results => {
+            if(results == "party dont exist") {
+                return res.status(403).json({
+                    "status": 403,
+                    "error":"party does not exists "
+                });   
+            } else {
+                return res.status(200).json({
+                    "status": 200,
+                     "data":[{
+                         "message": `deleted party ${results[0].partyname} successfully`
+                     }]
+                }); 
+            }
+        })
         
     }
 }

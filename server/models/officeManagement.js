@@ -49,6 +49,41 @@ class Office {
         let allParties = await client.query('select * from parties')
         return allParties.rows
     }
+
+    async updateOffice(officeId, officeInfo) {
+        const allOffices = await client.query('select * from offices');
+        const officeExist = allOffices.rows.some(n => n.id == officeId)
+        if(officeExist) {
+            let data = `
+            UPDATE offices SET 
+            officename=$1, officeinfo=$2, officetype=$3,goveremntid=$4 ,officeadress=$5,officeleader=$6 ,officestatus=$7 ,leaderemail=$8,logourl=$9
+            WHERE id=$10 
+            `
+            let inputs = [officeInfo.officename, officeInfo.officeinfo, officeInfo.officetype,officeInfo.goveremntid, officeInfo.officeaddress, officeInfo.officeleader,officeInfo.officestatus, officeInfo.leaderemail, officeInfo.logourl, officeId]
+
+            await client.query(data,inputs)
+            let partyCreated = await client.query('select * from offices where id=$1', [officeId])
+
+            return partyCreated.rows
+            
+        }else {
+            return "office dont exist"
+        }
+    }
+
+    async deleteOffice(officeId) {
+        const office = await client.query('select * from offices where id=$1', [officeId])
+
+        if(office && office.rows.length > 0) 
+         {
+            console.log(office.rows)
+            await client.query('DELETE FROM offices WHERE id=$1', [officeId])
+            return office.rows 
+        } else {
+            return "office dont exist"
+        }
+
+    }
 }
 
 
