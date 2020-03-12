@@ -1,20 +1,19 @@
+import jwtDecode from 'jwt-decode'
+import tokenHelper from '../helpers/userTokens'
 
-const checkToken = (req,res,next) => {
-    const bearerHeader = req.token; 
 
-    let bearerToken = bearerHeader.split(' ');
-    
-        if (typeof bearerHeader !== 'undefined') {
-            token = bearerToken[1] 
-            req.token = token
-            next();
-        }else {
-                return res.status(401).json({
-                    "status":"error",
-                    "error":"you are not signed in "
-                });
-            }  
-}
+const authenticate = (req, res, next) => {
+  const authHeaders = req.headers['authorization'].split(' ')[1];
 
-export default checkToken;
-
+  console.log(jwtDecode(authHeaders))
+  if(authHeaders !== undefined) {
+   req.token = authHeaders
+    return next();
+  } else {
+    return res.status(403).json({
+      status: 'error',
+      error: 'not logged in',
+    });
+  }
+};
+export default authenticate;   
