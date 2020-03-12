@@ -25,7 +25,7 @@ CREATE TABLE "parties" (
   partyAddress varchar(50) default NULL,
   candidateId varchar(255) default NULL,
   partyLeader TEXT default NULL,
-  partyMortal varchar(36) NOT NULL,
+  partyMortal varchar(36) default NULL,
   leaderEmail varchar(255) default NULL,
   logoUrl varchar(1000) default NULL
 );
