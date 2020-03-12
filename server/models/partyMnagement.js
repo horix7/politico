@@ -33,6 +33,22 @@ class Party {
         }
 
     }
+
+    async viewParty(partyId) {
+        let allParties = await client.query('select * from parties')
+        if(allParties.rows.some(n => n.id == partyId)) {
+            let partData  = await client.query('select * from parties where id=$1', [partyId])
+            return partData.rows
+        } else {
+            return "dont exist"
+        }
+        
+    }
+
+    async viewAll() {
+        let allParties = await client.query('select * from parties')
+        return allParties.rows
+    }
 }
 
 

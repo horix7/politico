@@ -42,7 +42,7 @@ export default {
 
 
                         UpdateParty:Joi.object().keys({
-                            name:Joi.string().required(),
+                            partyname:Joi.string().required(),
                             hqAddress: Joi.string().required(),
                             logoUrl: Joi.string().required(),
                             foundeOn: Joi.date(),
