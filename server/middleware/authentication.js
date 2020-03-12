@@ -3,6 +3,12 @@ import tokenHelper from '../helpers/userTokens'
 
 
 const authenticate = (req, res, next) => {
+  if(req.headers['authorization'] == undefined) {
+    return res.status(403).json({
+      status: 'error',
+      error: 'not logged in',
+    });
+  }
   const authHeaders = req.headers['authorization'].split(' ')[1];
 
   console.log(jwtDecode(authHeaders))
@@ -17,3 +23,5 @@ const authenticate = (req, res, next) => {
   }
 };
 export default authenticate;   
+
+
