@@ -5,15 +5,15 @@ export default {
     
     schemas:{   UserSchema:Joi.object().keys({
                             email: Joi.string().email(),
-                            firstName: Joi.string().required(), 
-                            lastName: Joi.string().required(),
+                            firstname: Joi.string().required(), 
+                            secondname: Joi.string().required(),
                             address: Joi.string().required(),
-                            phoneNumber: Joi.number().required(),
-                            otherName: Joi.string().required(),
-                            passportUrl: Joi.string().required(),
-                            userName: Joi.string().required(),
+                            phonenumber: Joi.number(),
+                            nationalid: Joi.number(),
+                            othername: Joi.string(),
+                            passporturl: Joi.string(),
                             password: Joi.string().min(5).required(),
-                            userType: Joi.string().valid(['user','candidate']),
+                            usertype: Joi.string().valid(['user','candidate']),
                             isAdmin: Joi.boolean()
                             }).options({abortEarly : false}),
 
@@ -32,7 +32,7 @@ export default {
                                 }).options({abortEarly : false}),
              
                         PartySchema:Joi.object().keys({
-                            name:Joi.string().required(),
+                            partyname:Joi.string().required(),
                             hqAddress: Joi.string().required(),
                             logoUrl: Joi.string().required(),
                             foundeOn: Joi.date(),
@@ -42,9 +42,9 @@ export default {
 
 
                         UpdateParty:Joi.object().keys({
-                            partyname:Joi.string().required(),
-                            hqAddress: Joi.string().required(),
-                            logoUrl: Joi.string().required(),
+                            partyname:Joi.string(),
+                            hqAddress: Joi.string(),
+                            logoUrl: Joi.string(),
                             foundeOn: Joi.date(),
                             partInfo: Joi.string(),
                             partyAddress: Joi.string()
@@ -52,9 +52,9 @@ export default {
                         }).options({abortEarly : false}),
 
                         OfficeSchema:Joi.object().keys({
-                            name:Joi.string().required(),
-                            type: Joi.string().required(),
-                            officeInfo: Joi.string().required(),
+                            officename:Joi.string().required(),
+                            type: Joi.string(),
+                            officeinfo: Joi.string().required(),
                             status: Joi.string().valid(['open','closed']),
                             logoUrl: Joi.string(),
                             applyId: Joi.string(),
@@ -63,9 +63,9 @@ export default {
                         }).options({abortEarly : false}),
 
                         updateOffice:Joi.object().keys({
-                            name:Joi.string().required(),
+                            officename:Joi.string().required(),
                             type: Joi.string().required(),
-                            officeInfo: Joi.string().required(),
+                            officeinfo: Joi.string().required(),
                             status: Joi.string().valid(['open','closed']),
                             logoUrl: Joi.string()
                             
