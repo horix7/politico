@@ -33,6 +33,22 @@ class Office {
         }
 
     }
+
+    async viewOffice(officeId) {
+        let allParties = await client.query('select * from offices')
+        if(allParties.rows.some(n => n.id == officeId)) {
+            let partData  = await client.query('select * from parties where id=$1', [officeId])
+            return partData.rows
+        } else {
+            return "dont exist"
+        }
+        
+    }
+
+    async viewAll() {
+        let allParties = await client.query('select * from parties')
+        return allParties.rows
+    }
 }
 
 
