@@ -1,17 +1,28 @@
-import decoder from 'jwt-decode'
-
+import token from '../helpers/userTokens'
 
 const isAdmin = (req, res, next) => {
- let information = decoder(req.token)
- if(information.isadmin == 'true') {
-     return next()
- }else {
-     console.log(information)
-    return res.status(403).json({
-        status: 403,
-        error: 'not allowed to access this route',
-      });
- }
+
+    try {
+        let information = token.decode(req.token)
+    } catch {
+        return res.status(403).json({
+            status: 403,
+            error: 'please stoping faking the token',
+          });
+    }
+   finally {
+    let information = token.decode(req.token)
+    if(information.isadmin == 'true') {
+        return next()
+    }else {
+       return res.status(403).json({
+           status: 403,
+           error: 'not allowed to access this route',
+         });
+    }
+   }
+
+
 };
 export default isAdmin;   
 

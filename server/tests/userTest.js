@@ -2,6 +2,9 @@ import {Client} from 'pg'
 import chai from 'chai'
 import chaiHttp from 'chai-http'
 import app from '../server'
+import auth from '../middleware/authentication'
+import isadmin from '../middleware/isAdmin'
+import validator from  '../middleware/validation'
 
 let client = new Client({
     user: "postgres",
@@ -49,7 +52,7 @@ describe('User Auth Tests', ()=> {
             .post('/api/v1/auth/signup')
             .send(signUp)
             .end((err, res) =>{
-                res.should.have.status(403);
+                res.should.have.status(400);
             });
             done();
     });
@@ -57,9 +60,9 @@ describe('User Auth Tests', ()=> {
     it('user should sign-in in the system with valid inputs ', (done) => {        
         chai.request(app)
             .post('/api/v1/auth/signin')
-            .send(signUp)
+            .send(userSignin2)
             .end((err, res) =>{
-                res.should.have.status(403);
+                res.should.have.status(200);
             });
             done();
     });
@@ -69,7 +72,7 @@ describe('User Auth Tests', ()=> {
             .post('/api/v1/auth/signin')
             .send(userSignin2)
             .end((err, res) =>{
-                res.should.have.status(200);
+                res.should.have.status(403);
             });
             done();
     });

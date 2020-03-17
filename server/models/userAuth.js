@@ -63,8 +63,20 @@ class User {
         }
     }
 
-    allUsers() {
+   async allUsers() {
+        const allUsers = await client.query('select * from users');
+        return allUsers.rows
+    }
 
+    async oneUser(userId) {
+        const allUsers = await client.query('select * from users');
+        let idExist = allUsers.rows.some(n => n.id == userId)
+        if(idExist) {
+            const userDetails = await client.query('select * from users where id=$1', [userId])
+            return userDetails.rows
+        } else {
+            return 'no'
+        }
     }
 }
 

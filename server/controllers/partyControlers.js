@@ -29,7 +29,14 @@ class PartyManagement {
     }
 
     viewParty(req, res) {
-        party.viewParty(req.params.id)
+                
+        if(!Number.isInteger(parseInt(req.params.id))) {
+            return res.status(400).json({
+                "status": 400,
+                "message": "the id you specified is not valid "
+            }); 
+        }
+        party.viewParty(parseInt(req.params.id).toString())
         .then(results => {
             if(results == "dont exist") {
                 return res.status(403).json({
@@ -78,7 +85,14 @@ class PartyManagement {
         })
     }
     editParty(req, res) {
-        party.updateParty(req.params.id, req.body)
+                
+        if(!Number.isInteger(parseInt(req.params.id))) {
+            return res.status(400).json({
+                "status": 400,
+                "message": "the id you specified is not valid "
+            }); 
+        }
+        party.updateParty(parseInt(req.params.id).toString(), req.body)
         .then(results => {
             if(results == "party dont exist") {
                 return res.status(403).json({
@@ -103,7 +117,14 @@ class PartyManagement {
     }
 
     deletePartry(req,res) {
-        party.deleteParty(req.params.id)
+                
+        if(!Number.isInteger(parseInt(req.params.id))) {
+            return res.status(400).json({
+                "status": 400,
+                "message": "the id you specified is not valid "
+            }); 
+        }
+        party.deleteParty(parseInt(req.params.id).toString())
         .then(results => {
             if(results == "party dont exist") {
                 return res.status(403).json({

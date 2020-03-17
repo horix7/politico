@@ -2,6 +2,10 @@ import {Client} from 'pg'
 import chai from 'chai'
 import chaiHttp from 'chai-http'
 import app from '../server'
+import auth from '../middleware/authentication'
+import isadmin from '../middleware/isAdmin'
+import validator from  '../middleware/validation'
+
 
 let client = new Client({
     user: "postgres",
