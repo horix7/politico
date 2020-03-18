@@ -35,7 +35,7 @@ describe('Party Tests', ()=> {
             .post('/api/v1/parties')
             .send(partyInfo)
             .end((err, res) =>{
-                res.should.have.status(403);
+                res.should.have.status(401);
             });
             done();
     });
@@ -44,7 +44,7 @@ describe('Party Tests', ()=> {
             .post('/api/v1/parties')
             .send(partyInfo2)
             .end((err, res) =>{
-                res.should.have.status(403);
+                res.should.have.status(401);
             });
             done();
     });

@@ -31,7 +31,7 @@ describe('office Tests', ()=> {
             .post('/api/v1/offices')
             .send(officeInfo)
             .end((err, res) =>{
-                res.should.have.status(403);
+                res.should.have.status(401);
             });
             done();
     });
@@ -40,7 +40,7 @@ describe('office Tests', ()=> {
             .post('/api/v1/offices')
             .send(officeInfo2)
             .end((err, res) =>{
-                res.should.have.status(403);
+                res.should.have.status(401);
             });
             done();
     });
