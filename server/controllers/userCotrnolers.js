@@ -17,8 +17,8 @@ class userController {
             });
         }
         else if (results == "email") {
-            return res.status(403).json({
-                "status": 403,
+            return res.status(409).json({
+                "status": 409,
                 "error":"email you provide is already in use "
             });
         }
@@ -92,10 +92,50 @@ class userController {
        })
     }
     getAllUsers(req, res) {
-      
+        account.allUsers(req.body)
+        .then(results => {
+            let displayResults = []
+            results.forEach(n => {
+                let {id,firstname,email,phone,userprofile,isAdmin} = n
+                displayResults.push({id,firstname,email,phone,userprofile,isAdmin} )
+            })
+            return res.status(200).json({
+                "status": 200,
+                "data": displayResults
+               });
+        })
+    
     }
     getOneUser(req, res) {
-       
+        if(parseInt(req.params.id).toString() == "NaN") {
+            return res.status(400).json({
+                "status": 400,
+                "message": "the id you specified is not valid "
+            }); 
+        }
+       account.oneUser(parseInt(req.params.id).toString())
+       .then(results => {
+           if(results == 'no') {
+            return res.status(403).json({
+                "status": 403,
+                "error":"the user you are reffering does not exist"
+            }); 
+           } else {
+            const {id,firstname , secondname, email, phone,userprofile,isadmin} =  results[0]
+            return res.status(200).json({
+                "status": 200,
+                "data": {
+                    id: id,
+                    firstname: firstname,
+                    secondname: secondname,
+                    email: email,
+                    phoneNumber: phone,
+                    passportUrl: userprofile || "",
+                    isAdmin: isadmin || false
+                }
+            }); 
+           }
+       })
     }
 }
 

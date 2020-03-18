@@ -2,6 +2,10 @@ import {Client} from 'pg'
 import chai from 'chai'
 import chaiHttp from 'chai-http'
 import app from '../server'
+import auth from '../middleware/authentication'
+import isadmin from '../middleware/isAdmin'
+import validator from  '../middleware/validation'
+
 
 let client = new Client({
     user: "postgres",
@@ -31,7 +35,7 @@ describe('Party Tests', ()=> {
             .post('/api/v1/parties')
             .send(partyInfo)
             .end((err, res) =>{
-                res.should.have.status(403);
+                res.should.have.status(401);
             });
             done();
     });
@@ -40,7 +44,7 @@ describe('Party Tests', ()=> {
             .post('/api/v1/parties')
             .send(partyInfo2)
             .end((err, res) =>{
-                res.should.have.status(403);
+                res.should.have.status(401);
             });
             done();
     });

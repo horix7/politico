@@ -11,6 +11,13 @@ router.get("/offices/:id", checkToken, office.viewOffice)
 router.get("/offices", checkToken, office.getAllOffices)
 router.put("/offices/:id",checkToken, isAdmin,validation.inputsValids(validation.schemas.updateOffice),office.editOffice)
 router.delete("/offices/:id", checkToken,isAdmin, office.deleteOffice)
+router.post("/offices/:id/register", checkToken,isAdmin, office.createCandiadate)
+router.get("/candidates", checkToken, office.getAllCandidates)
+router.post("/votes", checkToken, office.createAvote)
+router.post("/petitions", checkToken, office.createPetition)
+router.get("/office/:id/result", checkToken, office.viewResults)
+
+
 
 export  default router 
 
