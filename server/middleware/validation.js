@@ -64,10 +64,11 @@ export default {
 
                         updateOffice:Joi.object().keys({
                             officename:Joi.string().trim().required(),
-                            type: Joi.string().trim().required(),
+                            type: Joi.string().trim(),
                             officeinfo: Joi.string().trim().required(),
                             status: Joi.string().trim().valid(['open','closed']),
-                            logourl: Joi.string().trim()
+                            logourl: Joi.string().trim(),
+                            hqaddress:Joi.string().trim()
                             
                         }).options({abortEarly : false}),
                         

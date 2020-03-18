@@ -103,13 +103,13 @@ class officeManagement {
                 });
             } else {
                 console.log(results)
-                const {id, officename, officeinfo,foundeon,officeaddress,logourl} = results[0]
+                const {id, officename, officeinfo,foundeon,officeadress,logourl} = results[0]
                 return res.status(201).json({
                     "status": 201,
                      "data":{
                          id: id,
                          name: officename  || "",
-                         hqaddress: officeaddress || "",
+                         hqaddress: officeadress || "",
                          logourl: logourl || "",
                          officeinfo: officeinfo || "",
                          foundeon: foundeon || ""
@@ -234,10 +234,28 @@ class officeManagement {
                     "status": 403,
                     "data": results
                 }); 
-            } else {
+
+            } else if ( results.length == 0)  {
+                return res.status(404).json({
+                    "status": 404,
+                    "data": "no votes yet on this office now"
+                }); 
+            }
+            else {
+                let {id, votefor, office} = results[0]
+                let displayData = results.map(n =>  n.votefor)
+                let distinguish = [...new Set(displayData)]
+                let data = []
+                let voto = results.map(n =>{return {votefor: n.votefor, office: n.office}})
+                distinguish.forEach(n => {
+                    let res = voto.filter(x => x.votefor == n)
+                    data.push({...res[0], votecount: res.length})
+                })
+
                 return res.status(200).json({
                     "status": 200,
-                    "data": results
+                    "data": data
+
                 }); 
             }
         })

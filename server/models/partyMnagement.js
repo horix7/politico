@@ -1,13 +1,12 @@
 import token from '../helpers/userTokens'
-import { Client } from 'pg';
+import { Pool } from 'pg';
 
-let client = new Client({
-    user: "postgres",
-    password: "paul",
-    host: "localhost",
-    port: 5432,
-    database: "politico"
-})
+import 'dotenv/config'
+
+const client = new Pool({
+    connectionString: process.env.DATATBASE_URL,
+  })
+
 
 client.connect()
 
@@ -24,7 +23,7 @@ class Party {
             VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)
             RETURNING * 
             `
-            let inputs = [partyInfo.partyname, partyInfo.partinfo, partyInfo.foundedon,partyInfo.goveremntid, partyInfo.partyaddress, partyInfo.partyleader,partyInfo.partymortal, partyInfo.leaderemail, partyInfo.logourl]
+            let inputs = [partyInfo.partyname, partyInfo.partinfo, partyInfo.foundeon,partyInfo.goveremntid, partyInfo.hqaddress, partyInfo.partyleader,partyInfo.partymortal, partyInfo.leaderemail, partyInfo.logourl]
 
             await client.query(data,inputs)
             let partyCreated = await client.query('select * from parties where partyname=$1', [partyInfo.partyname])

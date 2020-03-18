@@ -12,7 +12,7 @@ class PartyManagement {
                     "error":"party you are creating already exist "
                 });
             } else {
-                const {id, partyname, partyinfo,foundeon,partyaddress,logourl} = results[0]
+                const {id, partyname, partinfo,foundedon,partyaddress,logourl} = results[0]
                 return res.status(201).json({
                     "status": 201,
                      "data":{
@@ -20,8 +20,8 @@ class PartyManagement {
                          name: partyname  || "",
                          hqaddress: partyaddress || "",
                          logourl: logourl || "",
-                         partyinfo: partyinfo || "",
-                         foundeon: foundeon || ""
+                         partyinfo: partinfo || "",
+                         foundeon: foundedon || ""
                      }
                 }); 
             }

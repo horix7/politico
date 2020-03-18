@@ -12,7 +12,7 @@ const isAdmin = (req, res, next) => {
     }
    finally {
     let information = token.decode(req.token)
-    if(information.isadmin == 'true') {
+    if(information.isadmin == 'True') {
         return next()
     }else {
        return res.status(403).json({
