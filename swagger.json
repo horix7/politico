@@ -1,0 +1,118 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "2",
+      "title": "Politico Application API Endpoints"
+    },
+    "host": "https://politicko.herokuapp.com/",
+    "basePath": "/api/v1/",
+    "securityDefinitions": {
+      "Headers": {
+        "type": "Token",
+        "name": "Authorization",
+        "in": "header"
+      }
+    },
+    "schemes": [
+        "https",
+        "http"
+      ],
+      
+      "consumes": [
+        "application/json"
+      ],
+      "produces": [
+        "application/json"
+     ],
+    "definitions": {
+      "signup": {
+        "type": "object",
+        "properties" : {
+          "firstname": {
+              "type": "string"
+          },
+          "secondname": {
+              "type": "string"
+          },
+          "email": {
+              "type": "string"
+          },
+          "password": {
+              "type": "string"
+          }
+        }
+      },
+      "signin": {
+        "type": "object",
+        "properties" : { 
+          "email": {
+              "type": "string"
+          },
+          "password": {
+              "type": "string"
+          }
+        }
+      },
+     
+    "paths": {
+      "/auth/signup": {
+        "post": {
+          "tags": [
+            "User Signup"
+          ],
+          "description": "User signup",
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "User information",
+              "schema": {
+                "$ref": "#/definitions/signup"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Welcome to Banka",
+              "schema": {
+                "$ref": "#/definitions/signup"
+              }
+            }
+          }
+        }
+      },
+    "/auth/signin": {
+      "post": {
+        "tags": [
+          "User Signin"
+        ],
+        "description": "User signin",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User creadentials",
+            "schema": {
+              "$ref": "#/definitions/signin"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Welcome to Banka",
+            "schema": {
+              "$ref": "#/definitions/signin"
+            }
+          }
+        }
+      }
+    }
+}
+}
+    }

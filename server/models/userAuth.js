@@ -1,14 +1,10 @@
 
-import { Client, Pool } from 'pg';
+import { Pool } from 'pg';
 import 'dotenv/config'
 
-let client = new Client({
-    user: "postgres",
-    password: "paul",
-    host: "localhost",
-    port: 5432,
-    database: "politico"
-})
+const client = new Pool({
+    connectionString: process.env.DATATBASE_URL,
+  })
 
 client.connect()
 // 

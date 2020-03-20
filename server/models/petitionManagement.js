@@ -2,11 +2,11 @@ import { Client } from 'pg';
 import { encode, decode}  from '../helpers/userToken'
 
 let client = new Client({
-    user: "postgres",
-    password: "paul",
-    host: "localhost",
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    host: process.env.DATABASE_HOST,
     port: 5432,
-    database: "politico"
+    database: process.env.DATABASE_NAME,
 })
 
 client.connect()

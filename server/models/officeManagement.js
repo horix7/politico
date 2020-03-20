@@ -1,13 +1,12 @@
 import token from '../helpers/userTokens'
-import { Client } from 'pg';
+import { Pool } from 'pg';
+import dotenv from 'dotenv'
 
-let client = new Client({
-    user: "postgres",
-    password: "paul",
-    host: "localhost",
-    port: 5432,
-    database: "politico"
-})
+import 'dotenv/config'
+
+const client = new Pool({
+    connectionString: process.env.DATATBASE_URL,
+  })
 
 client.connect()
 
@@ -129,15 +128,16 @@ class Office {
     async createVote(tokenId, voteInfo) {
         const {createdOn,office,candidate} = voteInfo
         let votesDb = await client.query('select * from votes')
-        let users = await client.query('select * from users where id=$1',[tokenId])
-        let offis = await client.query('select * from offices')
-        let officeVoted = offis.rows.some(n => n.id == office)
 
-            let creator = users.rows[0].email
+        let today = new Date();
+        let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
             let candidates = await client.query('select * from candidates where id=$1', [candidate])
             console.log(candidates.rows)
-        let voterExist = votesDb.rows.some(n => n.voter == creator)
-            if(officeVoted ) {
+        let voterExist = votesDb.rows.some(n => n.voter == tokenId && n.office == office && n.votefor == candidate)
+        let officeVoted = votesDb.rows.some(n => n.office == office && n.voter == tokenId)
+           
+        if(officeVoted ) {
                 return 'you have voted in this office'
             } else if (voterExist) {
                 return  'vote already exist'
@@ -151,7 +151,7 @@ class Office {
                 RETURNING * 
                 `
         
-                let inputs = [candidate, office,createdOn,0,party,creator]
+                let inputs = [candidate, office,date,0,party,tokenId]
                 let voteCreated = await client.query(votes,inputs)
         
                 return voteCreated.rows

@@ -10,13 +10,7 @@ class userController {
     userSignUp(req, res) {
         account.createUser(req.body)
         .then(results => {
-        if (results == "true") {
-            return res.status(403).json({
-                "status": 403,
-                "error":"email you provide the your information"
-            });
-        }
-        else if (results == "email") {
+         if (results == "email") {
             return res.status(409).json({
                 "status": 409,
                 "error":"email you provide is already in use "
