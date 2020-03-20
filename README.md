@@ -31,7 +31,7 @@
     
   ## Documentation
    #### you can chehck the Documentation on Heroku from Herok
-   docs [https://politicko.herokuapp.com/politico](API documentation )
+   docs (https://politicko.herokuapp.com/politico)[API documentation]
 
     
 Method | Endpoint | Functionality
@@ -66,7 +66,7 @@ Method | Endpoint | Functionality
      ```npm start```
    3. Start the development server
   
-     ```npm run dev```
+    ```npm run dev```
   
   4. Use Postman to test api on ```localhost:5000```
 
@@ -81,4 +81,4 @@ Method | Endpoint | Functionality
 
 ## Author
 
-[https://github.com/horix7] (Mahoro Jean Paul) 
+(https://github.com/horix7)[Mahoro Jean Paul]
