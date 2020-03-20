@@ -11,7 +11,7 @@ let client = new Client({
     port: 5432,
     database: process.env.DATABASE_NAME
 })
-
+client.connect()
 class Party {
     async createParty(partyInfo) {
         const allParties = await client.query('select * from parties');
