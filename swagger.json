@@ -1,102 +1,104 @@
 {
-    "swagger": "2.0",
-    "info": {
-      "version": "2",
-      "title": "Politico Application API Endpoints"
-    },
-    "host": "https://politicko.herokuapp.com/",
-    "basePath": "/api/v1/",
-    "securityDefinitions": {
-      "Headers": {
-        "type": "Token",
-        "name": "Authorization",
-        "in": "header"
+  "swagger": "2.0",
+  "info": {
+    "version": "1",
+    "title": "Politico Application API Endpoints"
+  },
+  "host": "politicko.herokuapp.com",
+  "basePath": "/api/v1/",
+  "securityDefinitions": {
+    "Headers": {
+      "type": "Token",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "schemes": [
+      "https",
+      "http"
+    ],
+    
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+   ],
+  "definitions": {
+    "signup": {
+      "type": "object",
+      "properties" : {
+        "firstName": {
+            "type": "string"
+        },
+        "secondname": {
+            "type": "string"
+        },
+        "email": {
+            "type": "string"
+        },
+        "password": {
+            "type": "string"
+        }
       }
     },
-    "schemes": [
-        "https",
-        "http"
-      ],
-      
-      "consumes": [
-        "application/json"
-      ],
-      "produces": [
-        "application/json"
-     ],
-    "definitions": {
-      "signup": {
-        "type": "object",
-        "properties" : {
-          "firstname": {
-              "type": "string"
-          },
-          "secondname": {
-              "type": "string"
-          },
-          "email": {
-              "type": "string"
-          },
-          "password": {
-              "type": "string"
-          }
+  "createParty": {
+      "type": "object",
+      "properties" : {
+        "partyname": {
+            "type": "string"
+        },
+        "partyinfo": {
+            "type": "string"
+        },
+        "hqaddress": {
+            "type": "string"
+        },
+        "foundeon": {
+            "type": "string"
         }
-      },
-      "signin": {
-        "type": "object",
-        "properties" : { 
-          "email": {
-              "type": "string"
-          },
-          "password": {
-              "type": "string"
-          }
+      }
+    },
+    "signin": {
+      "type": "object",
+      "properties" : { 
+        "email": {
+            "type": "string"
+        },
+        "password": {
+            "type": "string"
         }
+      }
+    },
+    "office": {
+      "type": "object",
+      "properties" : {
+        "officename": {
+            "type": "number"
+        },
+        "officeinfo": {
+          "type": "number"
       },
-     
-    "paths": {
-      "/auth/signup": {
-        "post": {
-          "tags": [
-            "User Signup"
-          ],
-          "description": "User signup",
-          "parameters": [
-            {
-              "name": "user",
-              "in": "body",
-              "description": "User information",
-              "schema": {
-                "$ref": "#/definitions/signup"
-              }
-            }
-          ],
-          "produces": [
-            "application/json"
-          ],
-          "responses": {
-            "201": {
-              "description": "Welcome to Banka",
-              "schema": {
-                "$ref": "#/definitions/signup"
-              }
-            }
-          }
-        }
-      },
-    "/auth/signin": {
+      "hqaddress": {
+        "type": "number"
+    }
+      }
+    }
+  }, 
+  "paths": {
+    "/auth/signup": {
       "post": {
         "tags": [
-          "User Signin"
+          "User Signup"
         ],
-        "description": "User signin",
+        "description": "User signup",
         "parameters": [
           {
             "name": "user",
             "in": "body",
-            "description": "User creadentials",
+            "description": "User information",
             "schema": {
-              "$ref": "#/definitions/signin"
+              "$ref": "#/definitions/signup"
             }
           }
         ],
@@ -104,15 +106,114 @@
           "application/json"
         ],
         "responses": {
-          "200": {
-            "description": "Welcome to Banka",
+          "201": {
+            "description": "Welcome to politico",
             "schema": {
-              "$ref": "#/definitions/signin"
+              "$ref": "#/definitions/signup"
             }
           }
         }
       }
+    },
+  "/auth/signin": {
+    "post": {
+      "tags": [
+        "User Signin"
+      ],
+      "description": "User signin",
+      "parameters": [
+        {
+          "name": "user",
+          "in": "body",
+          "description": "User creadentials",
+          "schema": {
+            "$ref": "#/definitions/signin"
+          }
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "responses": {
+        "200": {
+          "description": "Welcome to politico",
+          "schema": {
+            "$ref": "#/definitions/signin"
+          }
+        }
+      }
     }
-}
-}
+  },
+  "/parties/": {
+    "post": {
+      "tags": [
+        "Accounts"
+      ],
+      "description": "Create politico",
+      "parameters": [
+        {
+          "name":"Authorization",
+          "in": "header",
+          "description" :"Client token",
+          "required":true
+        },
+        {
+          "name":"account type",
+          "in": "body",
+          "description" :"politico party created ",
+          "schema": {
+              "$ref": "#/definitions/createParty"
+            }
+          }
+        ],
+        "produces": [
+        "application/json"
+      ],
+      "responses": {
+        "200": {
+          "description": "politico created successfully",
+          "schema": {
+            "$ref": "#/definitions/createParty"
+          }
+        }
+      }
     }
+  },
+"/offices": {
+  "post": {
+    "tags": [
+      "Staff"
+    ],
+    "description": "Create a staff account",
+    "parameters": [
+      {
+        "name":"Authorization",
+        "in": "header",
+        "description" :"Admin token",
+        "required":true
+      },
+      {
+        "name":"staff",
+        "in": "body",
+        "description" :"create office ",
+        "schema": {
+            "$ref": "#/definitions/office"
+          }
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "responses": {
+        "201": {
+          "description": "Welcome to politico",
+          "schema": {
+            "$ref": "#/definitions/office"
+          }
+        }
+      }
+    }
+  }
+  
+  }
+}
