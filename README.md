@@ -23,15 +23,15 @@
   * admin can view All users 
 
   ### APP on heroku Link 
-    Api App hosted on [Heroku](https://politicko.herokuapp.com/)
+   Api App hosted on [Heroku](https://politicko.herokuapp.com/)
 
   ### APP UI on github pages 
-    Api App hosted on [GH-Pages](https://horix7.github.io/politico/UI/html/landing.html)
+   Api App hosted on [GH-Pages](https://horix7.github.io/politico/UI/html/landing.html)
 
     
   ## Documentation
-    #### you can chehck the Documentation on Heroku from Herok
-    docs [https://politicko.herokuapp.com/politico](API documentation )
+   #### you can chehck the Documentation on Heroku from Herok
+   docs [https://politicko.herokuapp.com/politico](API documentation )
 
     
 Method | Endpoint | Functionality
@@ -81,4 +81,4 @@ Method | Endpoint | Functionality
 
 ## Author
 
-[https://github.com/horix7](Mahoro Jean Paul) 
+[https://github.com/horix7] (Mahoro Jean Paul) 
