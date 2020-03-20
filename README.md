@@ -31,7 +31,7 @@
     
   ## Documentation
    #### you can chehck the Documentation on Heroku from Herok
-   docs (https://politicko.herokuapp.com/politico)[API documentation]
+   docs [API documentation](https://politicko.herokuapp.com/politico)
 
     
 Method | Endpoint | Functionality
@@ -81,4 +81,4 @@ Method | Endpoint | Functionality
 
 ## Author
 
-(https://github.com/horix7)[Mahoro Jean Paul]
+[Mahoro Jean Paul](https://github.com/horix7)
