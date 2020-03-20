@@ -1,11 +1,16 @@
-import { Pool } from 'pg';
+import { Client } from 'pg';
+import dotenv from 'dotenv'
+
 import 'dotenv/config'
 
-const client = new Pool({
-    connectionString: process.env.DATATBASE_URL,
-  })
+let client = new Client({
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    host: process.env.DATABASE_HOST,
+    port: 5432,
+    database: process.env.DATABASE_NAME
+})
 
-client.connect()
 .then(() => {
 client.query(`
 DROP TABLE IF EXISTS "candidates";
