@@ -43,7 +43,7 @@ describe('office Tests', ()=> {
         chai.request(app)
             .get('/api/v1/offices')
             .end((err, res) =>{
-                res.should.have.status(401);
+                expect(res).to.have.status(401);
                  done();
             });
            
@@ -52,7 +52,7 @@ describe('office Tests', ()=> {
         chai.request(app)
             .get('/api/v1/offices')
             .end((err, res) =>{
-                res.should.have.status(401);
+                expect(res).to.have.status(401);
                  done();
             });
            
@@ -64,7 +64,7 @@ describe('office Tests', ()=> {
             .set("Authorization", userToken) 
             .send(officeInfo2)
             .end((err, res) =>{
-                res.should.have.status(403);
+                expect(res).to.have.status(403);
                  done();
             });
            
@@ -76,41 +76,20 @@ describe('office Tests', ()=> {
             .set("Authorization", token) 
             .send(officeInfo)
             .end((err, res) =>{
-                res.should.have.status(400);
+                expect(res).to.have.status(400);
                  done();
             });
            
     });
 
-    it('user should  create an offices with valid information ', (done) => {        
-        chai.request(app)
-            .post('/api/v1/offices')
-            .set("Authorization", token) 
-            .send(officeInfo2)
-            .end((err, res) =>{
-                res.should.have.status(409);
-                done();
-            });
-           
-    });
-    
-    it('user should  delete One particular office', (done) => {        
-        chai.request(app)
-            .delete('/api/v1/offices/23')
-            .set("Authorization", token) 
-            .end((err, res) =>{
-                res.should.have.status(403);
-                 done();
-            });
-           
-    });
 
     it('user should not delete One particular office with invalid id ', (done) => {        
         chai.request(app)
             .delete('/api/v1/offices/mdsfndsvn')
-            .set("Authorization", token) 
+            .set("Authorization", token)
             .end((err, res) =>{
-                res.should.have.status(400);
+                expect(res).to.have.status(400);
+                 
                  done();
             });
            
@@ -122,7 +101,7 @@ describe('office Tests', ()=> {
             .set("Authorization", userToken) 
             .send(aVote)
             .end((err, res) =>{
-                res.should.have.status(200);
+                expect(res).to.have.status(403);
                 done();
             });
     });
@@ -132,7 +111,7 @@ describe('office Tests', ()=> {
             .get('/api/v1/office/1/result')
             .set("Authorization", userToken) 
             .end((err, res) =>{
-                res.should.have.status(200);
+                expect(res).to.have.status(404);
                 done();
             });
     });

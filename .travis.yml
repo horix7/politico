@@ -13,12 +13,13 @@ deploy:
   provider: script
 
 before_script:
-  - psql -c 'create database politico;' -U postgres
+  - psql -c 'create database politico_test;' -U postgres
 
 script:
-  - npm test
+  - npm start
 
 after_success:
-  - npm run coverage
+  - npm  test
+  - npm run coverage 
   
    

@@ -35,7 +35,7 @@ describe('Party Tests', ()=> {
         chai.request(app)
             .get('/api/v1/parties')
             .end((err, res) =>{
-                res.should.have.status(401);
+                expect(res).to.have.status(401);
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('error');
                 done();
@@ -47,7 +47,7 @@ describe('Party Tests', ()=> {
             .get('/api/v1/parties')
             .send(partyInfo)
             .end((req, res) =>{
-                res.should.have.status(401);
+                expect(res).to.have.status(401);
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('error');
                 done();
@@ -60,7 +60,7 @@ describe('Party Tests', ()=> {
             .set("Authorization", userToken) 
             .send(partyInfo)
             .end((req, res) =>{
-                res.should.have.status(200);
+                expect(res).to.have.status(200);
                 expect(res.body).to.have.property('data');
                 done();
             });
@@ -73,9 +73,9 @@ describe('Party Tests', ()=> {
             .set("Authorization", userToken) 
             .send(partyInfo2)
             .end((err, res) =>{
-                res.should.have.status(403);
+                expect(res).to.have.status(403);
                 done();
-            });
+            })
             
     });
 
@@ -85,7 +85,7 @@ describe('Party Tests', ()=> {
             .set("Authorization", token) 
             .send(partyInfo2)
             .end((err, res) =>{
-                res.should.have.status(400);
+                expect(res).to.have.status(400);
                 expect(res.body).to.have.property('status');
                 expect(res.body).to.have.property('message');
                 done();
@@ -99,7 +99,7 @@ describe('Party Tests', ()=> {
             .set("Authorization", token) 
             .send(partyInfo)
             .end((err, res) =>{
-                res.should.have.status(201);
+                expect(res).to.have.status(201);
                 expect(res.body).to.have.property('data');
                 done();
             });
@@ -112,7 +112,7 @@ describe('Party Tests', ()=> {
             .set("Authorization", token) 
             .send(PartExist)
             .end((err, res) =>{
-                res.should.have.status(201);
+                expect(res).to.have.status(201);
                 expect(res.body).to.have.property('status');
                 done()
             })
@@ -124,7 +124,7 @@ describe('Party Tests', ()=> {
             .delete('/api/v1/parties/mdsfndsvn')
             .set("Authorization", token) 
             .end((err, res) =>{
-                res.should.have.status(400);
+                expect(res).to.have.status(400);
                  done();
             });
            
@@ -135,7 +135,7 @@ describe('Party Tests', ()=> {
             .delete('/api/v1/parties/2')
             .set("Authorization", token) 
             .end((err, res) =>{
-                res.should.have.status(200);
+                expect(res).to.have.status(200);
                  done();
             });
            
