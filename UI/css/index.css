@@ -1,11 +1,11 @@
 
 :root {
-    --nav-color:rgb(4, 1, 15);
+    --nav-color: rgb(21, 4, 255);
     --main-color: rgb(232, 252, 250);
     --second-color: #020049;
     --third-color: rgb(21, 4, 255);
     --text-color: #040F20;
-    --light-color: rgba(0, 47, 255, 0.453) ;
+    --light-color: rgba(144, 164, 255, 0.562) ;
     --logo-color: white
 }
 
@@ -974,6 +974,14 @@ font-size: large;
     border-radius: 50%;
     margin-right: 10px;
 }
+
+.onBB p{
+    color: whitesmoke;
+    font-size: large;
+    font-weight: bold;
+    text-transform: uppercase;
+    
+}
 @media screen and (max-width: 1000px) {
     body {
       margin: 0px;
@@ -982,7 +990,7 @@ font-size: large;
         display: block;
 
     }
-    .landingNav {
+    .landingNav,.second-nav {
         display: none;
     }
     .mid {
