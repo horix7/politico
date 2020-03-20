@@ -10,8 +10,8 @@
   * Users can sign up.
   * Users can login.
   * Logged in User can create a Political Party 
-  * Cahier can make an office 
-  * Cahier can make a petition 
+  * Admin can make an office 
+  * candidate can make a petition 
   * Admin can update the existing office 
   * Admin can delete a Party 
   * User can view Candidates 
@@ -30,8 +30,7 @@
 
     
   ## Documentation
-   #### you can chehck the Documentation on Heroku from Herok
-   docs [API documentation](https://politicko.herokuapp.com/politico)
+   #### you can check the Documentation on Heroku docs [API documentation](https://politicko.herokuapp.com/politico)
 
     
 Method | Endpoint | Functionality
